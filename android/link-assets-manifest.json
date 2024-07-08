@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Chakra Petch Regular.ttf",
+      "sha1": "934a68bd78f594e3c6eed5258322bd4da514a22a"
+    },
+    {
+      "path": "assets/fonts/Lexend-VariableFont_wght.ttf",
+      "sha1": "93d820996bfbbe9de065e16ed2f4588db7f0f51a"
+    }
+  ]
+}
