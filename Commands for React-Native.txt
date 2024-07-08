@@ -1,0 +1,2 @@
+Check devices - adb devices
+start progamm - npx react-native start
