@@ -1,7 +1,13 @@
 import React from 'react';
 import { Modal, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-const CustomAlert = ({ visible, message, onClose }) => {
+interface CustomAlertProps {
+  visible: boolean;
+  message: string;
+  onClose: () => void;
+}
+
+const CustomAlert: React.FC<CustomAlertProps> = ({ visible, message, onClose }) => {
   return (
     <Modal
       transparent={true}
