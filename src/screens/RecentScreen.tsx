@@ -1,28 +1,42 @@
-import React, { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
+import React, { useContext } from 'react';
+import { View, StyleSheet, ImageBackground, Text } from 'react-native'; // Import Text from 'react-native'
+import ExpenseContext from '../components/ExpenseContext';
+import ExpenseSummary from '../components/ExpenseSummary';
 import Header from '../components/Header';
-import ExpenseList from '../components/ExpenseList';
 
-const RecentScreen = () => {
-  // Example expenses data
-  const [expenses, setExpenses] = useState([
-    { name: 'Groceries', amount: 50, date: new Date('2024-07-10') },
-    { name: 'Utilities', amount: 100, date: new Date('2024-07-09') },
-    // Add more expenses as needed
-  ]);
+const RecentScreen: React.FC = () => {
+  const { expenses } = useContext(ExpenseContext)!;
 
   return (
-    <View style={styles.container}>
-      <Header />
-      <ExpenseList expenses={expenses} />
-    </View>
+    <ImageBackground
+      source={require('../../assets/images/DashboardBackground.png')}
+      style={styles.background}
+    >
+      <View style={styles.container}>
+        <Header />
+        <Text style={styles.text}>Summary</Text>
+        <ExpenseSummary expenses={expenses} />
+      </View>
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    resizeMode: 'cover',
+  },
   container: {
     flex: 1,
+    justifyContent: 'center',
   },
+  text: {
+    color: '#ffffff',
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginLeft: 20,
+    marginTop: 40,
+  }
 });
 
 export default RecentScreen;

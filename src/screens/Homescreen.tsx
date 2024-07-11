@@ -1,5 +1,4 @@
-// src/screens/DashboardContent.tsx
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   View,
   StyleSheet,
@@ -11,16 +10,10 @@ import {
 import Header from '../components/Header';
 import ExpenseList from '../components/ExpenseList';
 import AddExpenseForm from '../components/AddExpenseForm';
-import ExpenseSummary from '../components/ExpenseSummary';
+import ExpenseContext from '../components/ExpenseContext';
 
-const DashboardContent = () => {
-  const [expenses, setExpenses] = useState([
-    { name: 'Groceries', amount: 50.5, date: new Date() },
-    { name: 'Transport', amount: 15.75, date: new Date() },
-    { name: 'Utilities', amount: 100.0, date: new Date() },
-    // Add more expenses as needed
-  ]);
-
+const DashboardContent: React.FC = () => {
+  const { expenses, setExpenses } = useContext(ExpenseContext)!;
   const [showForm, setShowForm] = useState(false);
   const [newExpenseName, setNewExpenseName] = useState('');
   const [newExpenseAmount, setNewExpenseAmount] = useState('');
@@ -37,7 +30,7 @@ const DashboardContent = () => {
       setNewExpenseName('');
       setNewExpenseAmount('');
       setNewExpenseDate(new Date());
-      setShowForm(false); // Hide the form after adding the expense
+      setShowForm(false);
     }
   };
 
@@ -52,7 +45,6 @@ const DashboardContent = () => {
       <View style={styles.container}>
         <Header />
         <ExpenseList expenses={expenses} />
-        <ExpenseSummary expenses={expenses} />
         {showForm && (
           <Modal
             transparent={true}
@@ -69,7 +61,7 @@ const DashboardContent = () => {
                   newExpenseDate={newExpenseDate}
                   setNewExpenseDate={setNewExpenseDate}
                   addExpense={addExpense}
-                  closeForm={closeForm}  // Pass the closeForm function
+                  closeForm={closeForm}
                 />
               </View>
             </View>
