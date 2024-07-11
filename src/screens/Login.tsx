@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import CustomAlert from '../components/CustomAlert';
 import { useNavigation } from '@react-navigation/native';
-import { LoginScreenNavigationProp } from '../components/types'; // Adjust the path as necessary
+import { LoginScreenNavigationProp } from '../components/types';
 
 function Login(): React.JSX.Element {
   const navigation = useNavigation<LoginScreenNavigationProp>();
@@ -59,6 +59,8 @@ function Login(): React.JSX.Element {
         <TouchableOpacity style={styles.button} onPress={handleLogin}>
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
+        <Text  style={styles.demoText1}>Demo Credentials:</Text>
+        <Text  style={styles.demoText2}>user name = user1 , password = Password123</Text>
       </View>
       <CustomAlert
         visible={alertVisible}
@@ -110,6 +112,16 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     fontFamily: 'Lexend',
+  },
+  demoText1: {
+    marginTop: 50,
+    color: '#ffffff',
+    fontSize: 12,
+  },
+  demoText2: {
+    color: '#ffffff',
+    fontSize: 14,
+
   },
 });
 

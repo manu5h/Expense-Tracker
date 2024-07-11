@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { View, StyleSheet, ImageBackground, Text } from 'react-native'; // Import Text from 'react-native'
+import { View, StyleSheet, ImageBackground, Text } from 'react-native';
 import ExpenseContext from '../components/ExpenseContext';
 import ExpenseSummary from '../components/ExpenseSummary';
 import Header from '../components/Header';

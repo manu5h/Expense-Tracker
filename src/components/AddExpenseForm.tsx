@@ -85,7 +85,7 @@ const AddExpenseForm: React.FC<AddExpenseFormProps> = ({
 
 const styles = StyleSheet.create({
   form: {
-    backgroundColor: 'rgba(255, 255, 255, 0.9)', // Make form background slightly transparent
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
     borderRadius: 10,
   },
   input: {
