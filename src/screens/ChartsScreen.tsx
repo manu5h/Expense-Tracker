@@ -7,14 +7,13 @@ import { PieChart } from 'react-native-chart-kit';
 const ChartsScreen = () => {
   const { expenses } = useContext(ExpenseContext)!;
 
-  // Calculate total amount of all expenses
+
   const totalAmount = expenses.reduce((total, expense) => total + expense.amount, 0);
 
-  // Calculate percentage for each expense
   const chartData = expenses.map(expense => ({
     name: expense.name,
     amount: expense.amount,
-    percentage: ((expense.amount / totalAmount) * 100).toFixed(2), // Calculate percentage
+    percentage: ((expense.amount / totalAmount) * 100).toFixed(2), 
     color: `#${Math.floor(Math.random() * 16777215).toString(16)}`,
   }));
 
